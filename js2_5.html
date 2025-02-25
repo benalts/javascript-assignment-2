@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <form>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" placeholder="Your name">
+        
+        <button type="button" id="hello-button">Hello</button>
+        <button type="button" id="goodbye-button">Good Bye</button>
+        <button type="button" id="greetings-button">Greetings</button>
+    </form>
+
+    <script>
+        window.onload = () => {
+            document.getElementById("hello-button").addEventListener("click", speak);
+            document.getElementById("goodbye-button").addEventListener("click", speak);
+            document.getElementById("greetings-button").addEventListener("click", speak);
+        }
+
+        let speak = (e) => {
+            let entered_name = document.getElementById("name").value;
+            let greeting = event.target.textContent;
+            alert(greeting + " " + entered_name);
+        }
+    </script>
+</body>
+</html>

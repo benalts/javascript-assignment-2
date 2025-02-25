@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 6</title>
+</head>
+<body>
+    <h3>Select a state:</h3>
+    <div style="display: flex;">
+        <select id="select_menu" size="10">
+            
+        </select>
+
+        <button style="margin-left: 5px; height: 20px;" onclick="addState()">Add State</button>
+
+    </div>
+    
+    <div style="border: 1px solid black; border-radius: 5px; margin: 5px;">
+        <ol id="state-list"></ol>
+
+    </div>
+
+    <button style="margin: 5px;" onclick="clearState()">Clear States</button>
+    
+
+
+    </div>
+
+    <script>
+
+        const states = [
+            "Florida", "Georgia", "South Carolina", "North Carolina", 
+            "California", "New York", "Alabama", "Arizona", 
+            "Hawaii", "Nevada", "Maine"
+        ];
+
+        const selectMenu = document.getElementById("select_menu");
+        states.forEach((state, index) => {
+            let option = document.createElement("option");
+            option.value = state;
+            option.textContent = state;
+            if (index === 0) {
+                option.selected = true;
+            }
+            selectMenu.appendChild(option);
+        });
+        
+        const container = document.getElementById("state-list");
+
+        let addToList = (param) => {
+            container.innerHTML += `<li style="margin-left:0px;">${param}</li>`;
+        }
+        let addState = () => {
+            let selected_state = document.getElementById("select_menu").value;
+            addToList(selected_state);
+
+        }
+        let clearState = () => {
+            container.innerHTML = "";
+        }
+    </script>
+    
+</body>
+</html>

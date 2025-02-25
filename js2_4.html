@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 4</title>
+</head>
+<body>
+    <form>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" placeholder="Your name">
+        
+        <button type="button" onclick="speak('Hello')">Hello</button>
+        <button type="button" onclick="speak('Good Bye')">Good Bye</button>
+        <button type="button" onclick="speak('Greetings')">Greetings</button>
+
+    </form>
+
+    <script>
+        let speak = (prefix) => {
+            let entered_name = document.getElementById("name").value;
+            alert(prefix + " " + entered_name);
+        }
+    </script>
+</body>
+</html>

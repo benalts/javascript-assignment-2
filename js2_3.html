@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id>
+        <ol id="list_el">
+        </ol>
+
+    </div>
+
+    <script>
+        let names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+        array_names = names.trim().split(", ");
+        
+        let listItems = array_names.map(name => `<li>${name}</li>`).join("");
+
+        document.getElementById("list_el").innerHTML = listItems;
+    </script>
+
+
+
+
+    
+</body>
+</html>

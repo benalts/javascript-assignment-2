@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2</title>
+</head>
+<body>
+    <div id="numWords"></div>
+
+    <script>
+        let sentence = prompt("Please provide a sentence.");
+
+        if (sentence == null) {
+        sentence = "";
+        }
+
+        sentence = sentence.trim();
+        
+        let wordCount = 0;
+        if (sentence !== "") {
+            wordCount = sentence.split(/\s+/).length;
+        }
+
+        let result;
+        if (wordCount === 0) {
+            result = "None";
+        } else if (wordCount === 1) {
+            result = "1";
+        } else {
+            result = wordCount;
+        }
+
+        document.getElementById("numWords").textContent = result;
+    </script>
+    
+</body>
+</html>
