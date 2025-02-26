@@ -28,6 +28,7 @@
     </div>
 
     <script>
+        
 
         const states = [
             "Florida", "Georgia", "South Carolina", "North Carolina", 
@@ -36,15 +37,22 @@
         ];
 
         const selectMenu = document.getElementById("select_menu");
-        states.forEach((state, index) => {
-            let option = document.createElement("option");
-            option.value = state;
-            option.textContent = state;
-            if (index === 0) {
-                option.selected = true;
-            }
-            selectMenu.appendChild(option);
-        });
+
+        function fillStates() {
+            selectMenu.innerHTML = "";
+            states.forEach((state, index) => {
+                let option = document.createElement("option");
+                option.value = state;
+                option.textContent = state;
+                if (index === 0) {
+                    option.selected = true;
+                }
+                selectMenu.appendChild(option);
+            });
+        }
+
+        fillStates();
+
         
         const container = document.getElementById("state-list");
 
@@ -52,12 +60,29 @@
             container.innerHTML += `<li style="margin-left:0px;">${param}</li>`;
         }
         let addState = () => {
+            //store currently selected state
+            const currentSelectedState = selectMenu.selectedIndex;
+            
             let selected_state = document.getElementById("select_menu").value;
+
             addToList(selected_state);
+
+            selectMenu.remove(selectMenu.selectedIndex);
+            
+            //auto seelect next state
+            let newState = currentSelectedState;
+            if (newState >= selectMenu.options.length) {
+                newState = selectMenu.options.length - 1;
+            }
+
+            if (newState >= 0) {
+                selectMenu.selectedIndex = newState;
+            }
 
         }
         let clearState = () => {
             container.innerHTML = "";
+            fillStates();
         }
     </script>
     

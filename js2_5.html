@@ -24,7 +24,7 @@
 
         let speak = (e) => {
             let entered_name = document.getElementById("name").value;
-            let greeting = event.target.textContent;
+            let greeting = e.target.textContent;
             alert(greeting + " " + entered_name);
         }
     </script>
